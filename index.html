@@ -8,7 +8,7 @@
 <body>
   <h1>Hello, PWA!</h1>
   <script>
-    // Example API endpoint
+    // Replace this URL with your actual API endpoint
 const weatherApiUrl = 'https://api.example.com/weather';
 
 // Fetch weather data from the API and update the UI
@@ -16,8 +16,22 @@ function fetchWeatherData() {
   fetch(weatherApiUrl)
     .then((response) => response.json())
     .then((data) => {
+      // For demo purposes, we'll use a mock API response using a JSON object
+      // Replace this with the actual API response from your server
+      const mockApiResponse = {
+        temperature: '25°C',
+        condition: 'Sunny',
+        location: 'Demo City',
+      };
+
       // Update the UI with the weather data
-      // ...
+      const temperatureElement = document.getElementById('temperature');
+      const conditionElement = document.getElementById('condition');
+      const locationElement = document.getElementById('location');
+
+      temperatureElement.textContent = mockApiResponse.temperature;
+      conditionElement.textContent = mockApiResponse.condition;
+      locationElement.textContent = mockApiResponse.location;
     })
     .catch((error) => {
       console.error('Error fetching weather data:', error);
